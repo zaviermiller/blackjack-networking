@@ -66,7 +66,7 @@ class Player:
             lines[7].append(f"│       {val}{space}│")
             lines[8].append("└─────────┘")
 
-        lines[4].append(f" Value: {self.get_value()}")
+        lines[4].append(f" Value: {self.get_value()}, Bet: {self._bet}")
         lines[0].append(f" =-=-=-= {self._name} =-=-=-=")
 
         result = ["".join(line) for line in lines]

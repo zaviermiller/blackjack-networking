@@ -12,6 +12,7 @@ class Blackjack:
         self.deck.shuffle(3)
         self.card_index = 0
         self.revealed = 0
+        self.winner = None
 
     def deal(self):
         for _ in range(2):

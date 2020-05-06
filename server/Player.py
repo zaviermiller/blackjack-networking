@@ -1,29 +1,29 @@
 class Player:
 
-    def __init__(self,name):
+    def __init__(self, name):
         self._name = name
         self._connection = None
         self._funds = 1000
         self._bet = 0
         self._cards = []
-    
+
     def __repr__(self):
         return self._name
 
-    def set_connection(self,connection):
+    def set_connection(self, connection):
         self._connection = connection
-    
-    def set_bet(self,bet):
-            self._funds -= int(bet)
-            self._bet = int(bet)
-    
+
+    def set_bet(self, bet):
+        self._funds -= int(bet)
+        self._bet = int(bet)
+
     def order_cards(self):
         values = {"King": 10, "Queen": 10, "Jack": 10, "Ace": 11}
 
         n = len(self._cards)
 
         for i in range(n):
-            for j in range(0,n-i-1):
+            for j in range(0, n-i-1):
                 try:
                     firstCard = values[self._cards[j].value]
                 except:
@@ -34,8 +34,9 @@ class Player:
                     secondCard = self._cards[j+1].value
 
                 if firstCard > secondCard:
-                    self._cards[j], self._cards[j+1] = self._cards[j+1], self._cards[j]
-    
+                    self._cards[j], self._cards[j +
+                                                1] = self._cards[j+1], self._cards[j]
+
     def show_cards(self):
         suits = {
             "Diamonds": "♦",
@@ -46,7 +47,7 @@ class Player:
 
         lines = [[] for i in range(9)]
 
-        for _,card in enumerate(self._cards):
+        for _, card in enumerate(self._cards):
             if card.value == 10:
                 val = card.value
                 space = ""
@@ -75,7 +76,7 @@ class Player:
 
     def get_value(self):
         value = 0
-        for _,card in enumerate(self._cards):
+        for card in self._cards:
             try:
                 value += card.value
             except:
